@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "EODS_Salesforce", "EODS_Salesforce\EODS_Salesforce.dtproj", "{E21E79EE-6BB7-4E18-BA34-A0F12C315488}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E21E79EE-6BB7-4E18-BA34-A0F12C315488}.Development|Default.ActiveCfg = Development
+		{E21E79EE-6BB7-4E18-BA34-A0F12C315488}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0683FDCB-3E59-42AA-9BFB-237BD833FDD1}
+	EndGlobalSection
+EndGlobal
