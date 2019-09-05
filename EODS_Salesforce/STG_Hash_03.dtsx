@@ -1,0 +1,329 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/3/2019 8:04:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EC2AMAZ-GQJ0QHR"
+  DTS:CreatorName="EC2AMAZ-GQJ0QHR\fsutanto"
+  DTS:DTSID="{C46565A5-E1D4-487B-B510-9D72DB9FB8DD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="STG_Hash_03"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{0BCCDDF2-CDCD-4227-931C-74FE172F3748}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+      DTS:ObjectName="EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=EC2AMAZ-GQJ0QHR\SQL2017_SSIS;Initial Catalog=BF_Redshift_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{DC9DC933-911B-44F9-8FB4-D2376B412209}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="HASH_COMPARE FOR SF_To_STG_03">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_ATTACHMENT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9C17C7D5-CA97-49B0-BB46-A27684C2C1C0}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_ATTACHMENT"
+          DTS:ThreadHint="4">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_attachment SET HASH_COMPARE = HASHBYTES('MD5',  ISNULL(CAST(Body AS NVARCHAR(4000)),'') + ISNULL(CAST(BodyLength AS NVARCHAR(4000)),'') + ISNULL(CAST(ContentType AS NVARCHAR(120)),'') + ISNULL(CAST(CreatedById AS NVARCHAR(18)),'') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(Description AS NVARCHAR(500)),'') + ISNULL(CAST(Id AS NVARCHAR(18)),'') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)),'') + ISNULL(CAST(IsPrivate AS NVARCHAR(4000)),'') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)),'') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(Name AS NVARCHAR(255)),'') + ISNULL(CAST(OwnerId AS NVARCHAR(18)),'') + ISNULL(CAST(ParentId AS NVARCHAR(18)),'') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)),'')&#xA;)&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_BANK_ACCOUNT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7A7BC1A8-830D-4F89-A268-7E1856FCBE4F}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_BANK_ACCOUNT"
+          DTS:ThreadHint="7">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nu_dse_bank_account_c&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(Bank_Account__c AS NVARCHAR(4000)), '') + ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Holder_Address__c AS NVARCHAR(120)), '') + ISNULL(CAST(Holder_City__c AS NVARCHAR(25)), '') + ISNULL(CAST(Holder_Email__c AS NVARCHAR(80)), '') + ISNULL(CAST(Holder_State__c AS NVARCHAR(2)), '') + ISNULL(CAST(Holder_Zip__c AS NVARCHAR(5)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(nu_dse__Account__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Account_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Bank__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Bank_Account_Number__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Bank_External_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Bank_Name__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__BankAccountExternalID__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__CFT_Payee_Bank_Account_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CFT_REST_Payee_Bank_Account_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CFT_REST_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CFT_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__City__c AS NVARCHAR(200)), '') + ISNULL(CAST(nu_dse__External_CFT_ID__c AS NVARCHAR(25)), '') + ISNULL(CAST(nu_dse__External_CFT_REST_ID__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__External_GCS_ID__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__External_Id__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__External_RAMS_ID__c AS NVARCHAR(25)), '') + ISNULL(CAST(nu_dse__GCS_Payee_Bank_Account_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__GCS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Holder_s_Name__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Prism_External_Id__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Processor_Error__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Program__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__RAMS_Payee_Bank_Account_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__RAMS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Routing_Number__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__State__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Synced_With_Processor__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Telephone__c AS NVARCHAR(40)), '') + ISNULL(CAST(nu_dse__Zip__c AS NVARCHAR(50)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(Use_Prospect_Physical_Address__c AS NVARCHAR(4000)), '') + ISNULL(CAST(X18_Digit_ID__c AS NVARCHAR(1300)), ''));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_CONTACT"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1CF2361E-7F19-4E51-BD99-94D2A6FD937D}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_CONTACT"
+          DTS:ThreadHint="8">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_contact&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(AccountId AS NVARCHAR(18)), '') + ISNULL(CAST(Address_1__c AS NVARCHAR(155)), '') + ISNULL(CAST(Address_2__c AS NVARCHAR(155)), '') + ISNULL(CAST(Affiliate_ID__c AS NVARCHAR(155)), '') + ISNULL(CAST(AssistantName AS NVARCHAR(40)), '') + ISNULL(CAST(AssistantPhone AS NVARCHAR(40)), '') + ISNULL(CAST(Best_Time_to_Call__c AS NVARCHAR(100)), '') + ISNULL(CAST(Birthdate AS NVARCHAR(4000)), '') + ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Cred_Auth_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Debt_Amount_Qualification__c AS NVARCHAR(155)), '') + ISNULL(CAST(Debtor_Bill_Status__c AS NVARCHAR(100)), '') + ISNULL(CAST(Department AS NVARCHAR(80)), '') + ISNULL(CAST(Description AS NVARCHAR(4000)), '') + ISNULL(CAST(DoNotCall AS NVARCHAR(4000)), '') + ISNULL(CAST(Email AS NVARCHAR(80)), '') + ISNULL(CAST(EmailBouncedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(EmailBouncedReason AS NVARCHAR(255)), '') + ISNULL(CAST(Estimated_Total_Debt__c AS NVARCHAR(100)), '') + ISNULL(CAST(Expiration_Date__c AS NVARCHAR(155)), '') + ISNULL(CAST(Fax AS NVARCHAR(40)), '') + ISNULL(CAST(Firm_Name__c AS NVARCHAR(80)), '') + ISNULL(CAST(FirstName AS NVARCHAR(40)), '') + ISNULL(CAST(HasOptedOutOfEmail AS NVARCHAR(4000)), '') + ISNULL(CAST(HasOptedOutOfFax AS NVARCHAR(4000)), '') + ISNULL(CAST(HomePhone AS NVARCHAR(40)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IndividualId AS NVARCHAR(18)), '') + ISNULL(CAST(IS_SPANISH__c AS NVARCHAR(4000)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(IsEmailBounced AS NVARCHAR(4000)), '') + ISNULL(CAST(IsPersonAccount AS NVARCHAR(4000)), '') + ISNULL(CAST(Jigsaw AS NVARCHAR(20)), '') + ISNULL(CAST(JigsawContactId AS NVARCHAR(20)), '') + ISNULL(CAST(kClickID__c AS NVARCHAR(155)), '') + ISNULL(CAST(Landing_Page__c AS NVARCHAR(100)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastCURequestDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastCUUpdateDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastName AS NVARCHAR(80)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LeadSource AS NVARCHAR(40)), '') + ISNULL(CAST(MailDate__c AS NVARCHAR(155)), '') + ISNULL(CAST(MailerID__c AS NVARCHAR(155)), '') + ISNULL(CAST(MailingCity AS NVARCHAR(40)), '') + ISNULL(CAST(MailingCountry AS NVARCHAR(80)), '') + ISNULL(CAST(MailingGeocodeAccuracy AS NVARCHAR(40)), '') + ISNULL(CAST(MailingLatitude AS NVARCHAR(4000)), '') + ISNULL(CAST(MailingLongitude AS NVARCHAR(4000)), '') + ISNULL(CAST(MailingPostalCode AS NVARCHAR(20)), '') + ISNULL(CAST(MailingState AS NVARCHAR(80)), '') + ISNULL(CAST(MailingStreet AS NVARCHAR(255)), '') + ISNULL(CAST(MasterRecordId AS NVARCHAR(18)), '') + ISNULL(CAST(Middle_Name__c AS NVARCHAR(155)), '') + ISNULL(CAST(Mobile_Phone__c AS NVARCHAR(100)), '') + ISNULL(CAST(MobilePhone AS NVARCHAR(40)), '') + ISNULL(CAST(Name AS NVARCHAR(121)), '') + ISNULL(CAST(nu_dse__CFT_Payee_Contact_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CFT_REST_Payee_Contact_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CFT_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__GCS_Payee_Contact_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__GCS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Languages__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Level__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Processor_Error__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__RAMS_Payee_Contact_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__RAMS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(NuDebt_Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(optimizelyExperimentID__c AS NVARCHAR(155)), '') + ISNULL(CAST(optimizelyVariationID__c AS NVARCHAR(155)), '') + ISNULL(CAST(optimizelyVariationName__c AS NVARCHAR(155)), '') + ISNULL(CAST(OtherCity AS NVARCHAR(40)), '') + ISNULL(CAST(OtherCountry AS NVARCHAR(80)), '') + ISNULL(CAST(OtherGeocodeAccuracy AS NVARCHAR(40)), '') + ISNULL(CAST(OtherLatitude AS NVARCHAR(4000)), '') + ISNULL(CAST(OtherLongitude AS NVARCHAR(4000)), '') + ISNULL(CAST(OtherPhone AS NVARCHAR(40)), '') + ISNULL(CAST(OtherPostalCode AS NVARCHAR(20)), '') + ISNULL(CAST(OtherState AS NVARCHAR(80)), '') + ISNULL(CAST(OtherStreet AS NVARCHAR(255)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(Phone AS NVARCHAR(40)), '') + ISNULL(CAST(PhotoUrl AS NVARCHAR(255)), '') + ISNULL(CAST(Preferred_Language__c AS NVARCHAR(255)), '') + ISNULL(CAST(Prospect_Created__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Prospect_Source__c AS NVARCHAR(100)), '') + ISNULL(CAST(Prospect_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(RecordTypeId AS NVARCHAR(18)), '') + ISNULL(CAST(Remove_From_Pardot_Campaign__c AS NVARCHAR(4000)), '') + ISNULL(CAST(ReportsToId AS NVARCHAR(18)), '') + ISNULL(CAST(Salutation AS NVARCHAR(40)), '') + ISNULL(CAST(Send_Cred_Notice_1__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Send_Cred_Notice_2__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Send_Cred_Notice_3__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Send_Cred_Notice_4__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Send_NOAA__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Session_ID__c AS NVARCHAR(100)), '') + ISNULL(CAST(State_Qualification__c AS NVARCHAR(155)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(Title AS NVARCHAR(128)), '') + ISNULL(CAST(Trigger_LT_Ref_Email__c AS NVARCHAR(4000)), '') + ISNULL(CAST(UTM_Campaign__c AS NVARCHAR(100)), '') + ISNULL(CAST(UTM_Content__c AS NVARCHAR(155)), '') + ISNULL(CAST(UTM_ID__c AS NVARCHAR(100)), '') + ISNULL(CAST(UTM_Medium__c AS NVARCHAR(188)), '') + ISNULL(CAST(UTM_Source__c AS NVARCHAR(55)), '') + ISNULL(CAST(UTM_Term__c AS NVARCHAR(155)), '') + ISNULL(CAST(UUID__c AS NVARCHAR(100)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FEE_ITEM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{36F55585-5334-48AB-A1AF-C15F0FBCD1ED}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FEE_ITEM"
+          DTS:ThreadHint="9">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nu_dse_fee_item_c&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(nu_dse__Account__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Category__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__CFT_Subscriber_Fee_Id__c AS NVARCHAR(50)), '') + ISNULL(CAST(nu_dse__Consider_Greater__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Debit_Type__c AS NVARCHAR(2)), '') + ISNULL(CAST(nu_dse__Fee_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Fee_Basis__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Fee_Item_Category__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Fee_Template__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Frequency__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Max_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Max_Number_Of_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Min_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__No_of_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Payment_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Percent__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Program_Length_Pct__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__RAMS_Debit_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Sequence_Number__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(RecordTypeId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), ''));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FEE_TEMPLATE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1F975349-C7BD-4619-98F1-2A713984600B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FEE_TEMPLATE"
+          DTS:ThreadHint="10">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nu_dse_fee_template_c&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Legal_Plan_Included__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(nu_dse__Admin_Only__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Debt_Alert_Level__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Debt_Amount__c AS NVARCHAR(25)), '') + ISNULL(CAST(nu_dse__Default__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Description__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__GCS_Fee_Group_Id__c AS NVARCHAR(20)), '') + ISNULL(CAST(nu_dse__Maximum_Program_Length__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_Maintenance_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_Other_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_Third_Party_Fees__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_Total_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__RAMS_Fee_Group_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Service_Fee_Percentage__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Settlement_Fee_Percentage__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Settlement_Pct__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Test_record_identifier__c AS NVARCHAR(20)), '') + ISNULL(CAST(nu_dse__Total_Admin_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Retainer_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), ''));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FINANCIAL_PROFILE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{35A6EA35-821A-4760-B430-FB3EBDCDD6FF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FINANCIAL_PROFILE"
+          DTS:ThreadHint="3">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nu_dse_financial_profile_c&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(Avg_Gas_Electric_Oil__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Avg_Water_Sewer_Garbage__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Beyond_Monthly_Payment__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Car_Insurance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Funds_Available__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Medical_Care__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Misc_Expense_Internet__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(nu_dse__Additional_Financial_Assistance_Per_Mont__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Additional_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__afford_to_put_aside__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Alimony_Child_Support_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__All_Other_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Amount_Owed_on_Home__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Annuities__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Automobile_Insurance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Back_Taxes__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Balance_of_401K__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Bankruptcy_Type__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Budgeted_Monthly_Payment_Estimate__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Business_Interests__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Car_Maintenance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Car_Payment__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Cash_Assets__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Chapter_13__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Chapter_7__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Charity_Donations__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Child_Care_Day_Care__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Client_Has_Filed_Bankruptcy__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Clothing__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Any_Extra_Income_Amount_2__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Any_Extra_Income_Description_3__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Co_Chapter_13__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Co_Chapter_7__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Co_Client_Gross_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Co_Client_Has_Filed_Bankruptcy__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Amount_1__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Amount_3__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Amount_4__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Description_1__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Description_2__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__CO_Extra_Income_Description_4__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Co_Payments_Out_of_Pocket__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CO_Total_Net_Monthly_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Co_Year_Filed_for_Bankruptcy__c AS NVARCHAR(4)), '') + ISNULL(CAST(nu_dse__Combined_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Credit_Score__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Credit_Score_Source__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Debt_Settlement_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Dental_Care__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Do_You_Have_a_Will__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Education__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Education_School_Supplies__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Entertainment__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Extra_Income_Amount_1__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Extra_Income_Amount_2__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Extra_Income_Amount_3__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Extra_Income_Amount_4__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Extra_Income_Description_1__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Extra_Income_Description_2__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Extra_Income_Description_3__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Extra_Income_Description_4__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__First_Mortgage_Holder__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Food_Groceries_Eating_Out__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Funds_Remaining__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Gasoline__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Gifts__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Groceries__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Gross_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Gym_Health__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Hardship_Description__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Hardship_Reason__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Have_you_ever_filed_Bankruptcy__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Health_Insurance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Home_Equity__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Home_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Home_Value__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Homeowner_s_Renter_s_Insurance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Household_Items__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Housekeeping_Expense__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Housing_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Important_Note__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Income_Total__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Laundry_Dry_Cleaning__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Liens_Levy_s_Garnishment_s__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Life_Insurance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Maintenance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Marketable_Securities__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Medical__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Membership_Dues__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_CC_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Monthly_Disposable_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Mortgage_Notes__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Mortgage_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Net_Annual_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Net_income_after_monthly_expense__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Net_Monthly_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Number_of_Dependants__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other_1_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other_1_Payments_Description__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Other_2_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other_2_Payments_Description__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Other_3_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other_3_Payments_Description__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Other_Property_Value__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Other_Unsecured_Debt_Payment_s__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Own_other_Property__c AS NVARCHAR(50)), '') + ISNULL(CAST(nu_dse__Pension_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Personal_Care__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Pet_s_Food_and_Grooming__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Program__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Public_Parking_Fees__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Public_Transportation__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Religious_Donations__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Rent_Mortgage_payment__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Rental_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Repayment_Terms_Length__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Retirement_401K_IRA_Payments__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Retirement_Assets_IRA_Pension_other__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Savings_and_Retirement_Accounts__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Second_Mortgage_Holder__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Social_Security__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Source_Of_Additional_Financial_Assistanc__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Special_Circumstances__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Student_Loans__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Telephone__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Television_Cable_Satellite__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Temporary_loss_of_job__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Co_Extra_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Expenses__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Extra_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Total_Net_Monthly_Income__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Trusts__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Utilities__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Who_Holds_Your_Mortgage__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Year_Filed_for_Bankruptcy__c AS NVARCHAR(4)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(Secondary_Housing_Payment__c AS NVARCHAR(4000)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(Total_Income_after_Expenses__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Total_Income_after_Expenses_Color__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Total_Income_after_Expenses_Indicator__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Total_Monthly_Expenses__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Total_Monthly_Income__c AS NVARCHAR(4000)), ''));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D10AA98A-141C-4C7F-8884-12A05A53C06E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FIVE9_LIST"
+          DTS:ThreadHint="2">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="&#xA;UPDATE stg_sf_five9_list&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Five9LSP__Five9_Domain__c AS NVARCHAR(60)), '') + ISNULL(CAST(Five9LSP__Five9_User_Name__c AS NVARCHAR(60)), '') + ISNULL(CAST(Five9LSP__Five9_User_Password__c AS NVARCHAR(30)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST_CONTACT_MAPPING"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{EEE515F9-4587-497D-91B2-803281035B90}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FIVE9_LIST_CONTACT_MAPPING"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_five9_list_lead_mapping&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Five9__delete__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Five9__disabled__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Five9__five9_field_name__c AS NVARCHAR(255)), '') + ISNULL(CAST(Five9__salesforce_field_name__c AS NVARCHAR(255)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(38)), '') + ISNULL(CAST(SetupOwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST_ITEM"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CC32D589-2838-4933-B658-F9669717B609}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_FIVE9_LIST_ITEM"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_five9_list_item&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Five9LSP__Five9_List__c AS NVARCHAR(18)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(Offer__c AS NVARCHAR(18)), '') + ISNULL(CAST(Payment__c AS NVARCHAR(18)), '') + ISNULL(CAST(Program__c AS NVARCHAR(18)), '') + ISNULL(CAST(Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_GROUP_TASK"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FA611EC8-9F61-486D-ADF6-D152BF039509}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_GROUP_TASK"
+          DTS:ThreadHint="5">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nu_dse_group_task_c&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Enrollment_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Firm_Name__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(Next_Draft_Date_On_Create__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__ActivityDate__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Communication_Template__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Description__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Related_To__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__RelatedToFormula__c AS NVARCHAR(1300)), '') + ISNULL(CAST(nu_dse__Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Subject__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__SUBJECT_PICKLIST__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Test_Field__c AS NVARCHAR(1300)), '') + ISNULL(CAST(nu_dse__Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Unique_Identifier__c AS NVARCHAR(50)), '') + ISNULL(CAST(Owner_Name__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Owner_Name2__c AS NVARCHAR(1300)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(Program__c AS NVARCHAR(18)), '') + ISNULL(CAST(Program_Next_Draft_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(Record_Name__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Related_Record__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Subject_Pick_List__c AS NVARCHAR(255)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(Total_Debt_Included_in_Program__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Unique_Identifier__c AS NVARCHAR(50)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_NOTE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FC2DF5F3-EEE9-41BD-AF12-7D3DBCA85967}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_NOTE"
+          DTS:ThreadHint="6">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_note&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(Body AS NVARCHAR(4000)), '') + ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(IsPrivate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(ParentId AS NVARCHAR(18)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(Title AS NVARCHAR(80)), ''));" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_NOV9_TRADELINE"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{E0C210AF-C012-4471-8E65-228491A6D3BD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_NOV9_TRADELINE"
+          DTS:ThreadHint="11">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_nov9_sf_nu_dse_tradeline&#xA;  SET &#xA;      HASH_COMPARE = HASHBYTES('MD5', ISNULL(CAST(Account_Created_by_Ariel__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Account_Number_to_merge_in_Docs__c AS NVARCHAR(1300)), '') + ISNULL(CAST(agent_user__c AS NVARCHAR(18)), '') + ISNULL(CAST(Balance_Verified__c AS NVARCHAR(4000)), '') + ISNULL(CAST(BLP_Tradeline_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(Call_Recording__c AS NVARCHAR(255)), '') + ISNULL(CAST(CFT_PAyee_ID__c AS NVARCHAR(1300)), '') + ISNULL(CAST(CreatedById AS NVARCHAR(18)), '') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(Creditor_for_NS_Sync__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Creditor_to_Merge_in_Docs__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Current_Creditor_to_merge_in_docs__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Due_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Estimated_Fee__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Estimated_Settlement_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(External_Debt_Id__c AS NVARCHAR(254)), '') + ISNULL(CAST(Id AS NVARCHAR(18)), '') + ISNULL(CAST(Is_Exception__c AS NVARCHAR(4000)), '') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)), '') + ISNULL(CAST(LAST_4_Account_NUmber__c AS NVARCHAR(1300)), '') + ISNULL(CAST(LastActivityDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)), '') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)), '') + ISNULL(CAST(LOA_Date_Sent__c AS NVARCHAR(4000)), '') + ISNULL(CAST(LOA_Sent__c AS NVARCHAR(4000)), '') + ISNULL(CAST(LPOA_Sent__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Manually_Removed__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Manually_Removed_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Name AS NVARCHAR(80)), '') + ISNULL(CAST(nu_dse__Accepted_Offer__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Account__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Account_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__CFT_REST_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__CFT_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Charge_Off_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Classification__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Close_Reason__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Creation_Method__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Credit_Limit__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Current_Balance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Current_Stage__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Date_Closed__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Date_Effective__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Date_Opened__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Debt_Owner__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__External_CFT_Id__c AS NVARCHAR(25)), '') + ISNULL(CAST(nu_dse__External_CFT_REST_ID__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__External_GCS_ID__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__External_Id__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__External_RAMS_ID__c AS NVARCHAR(25)), '') + ISNULL(CAST(nu_dse__GCS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Highest_Balance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Include_In_The_Program__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Last_Payment_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Late_30_Days__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Late_60_Days__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Late_90_Days__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Minimum_Payment_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Most_Recent_Payment_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Most_Recent_Payment_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__New_Account_Number__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__New_Creditor__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Number_Of_Payments__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Original_Account_Number__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Original_Creditor__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Original_Debt__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Past_Due_Balance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Payee_Id__c AS NVARCHAR(30)), '') + ISNULL(CAST(nu_dse__Payment_Frequency__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Payment_Frequency_c__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Percentage__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Portfolio_Type__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Processor_Error__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Program__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__Prospect__c AS NVARCHAR(18)), '') + ISNULL(CAST(nu_dse__RAMS_Synced__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Sales_creditor__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Sales_Creditor_Name__c AS NVARCHAR(100)), '') + ISNULL(CAST(nu_dse__Scheduled_Payment_Amount__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(nu_dse__Synced_With_Processor__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Tradeline_Name__c AS NVARCHAR(1300)), '') + ISNULL(CAST(nu_dse__Verified_Balance__c AS NVARCHAR(4000)), '') + ISNULL(CAST(nu_dse__Verified_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Number_Of_Days_Overdue__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Original_Creditor_to_merge_in_Docs__c AS NVARCHAR(1300)), '') + ISNULL(CAST(OwnerId AS NVARCHAR(18)), '') + ISNULL(CAST(Program_Status__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Ready_To_Settle__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Review_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(Settlement_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(Statement_Received__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Submission_Status__c AS NVARCHAR(255)), '') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)), '') + ISNULL(CAST(team_lead_user__c AS NVARCHAR(18)), '') + ISNULL(CAST(Temp_CFT_Payee_ID__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Tradeline_Added_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Tradeline_Removed_Date__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Tradeline18DigitId__c AS NVARCHAR(1300)), '') + ISNULL(CAST(Verbal_Authorization_Received__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Verified_and_Current_Match__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Verified_Balance2__c AS NVARCHAR(4000)), '') + ISNULL(CAST(Wet_LOA_Completed__c AS NVARCHAR(4000)), ''));&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_SF_ALIAS"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{47609D61-E1E1-4E73-ABBD-4B9DE3914689}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="HASH_SF_ALIAS"
+          DTS:ThreadHint="12">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C054315F-EFA8-435E-AE07-64A4039F5949}"
+              SQLTask:SqlStatementSource="UPDATE stg_sf_alias_c SET HASH_COMPARE = HASHBYTES('MD5',  ISNULL(CAST(CreatedById AS NVARCHAR(18)),'') + ISNULL(CAST(CreatedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(Id AS NVARCHAR(18)),'') + ISNULL(CAST(IsDeleted AS NVARCHAR(4000)),'') + ISNULL(CAST(LastModifiedById AS NVARCHAR(18)),'') + ISNULL(CAST(LastModifiedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(LastReferencedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(LastViewedDate AS NVARCHAR(4000)),'') + ISNULL(CAST(Name AS NVARCHAR(80)),'') + ISNULL(CAST(Original_creditor__c AS NVARCHAR(18)),'') + ISNULL(CAST(OwnerId AS NVARCHAR(18)),'') + ISNULL(CAST(SystemModstamp AS NVARCHAR(4000)),'') &#xA;)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_ATTACHMENT"
+          TopLeft="280.685730605223,165.537649303291" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_BANK_ACCOUNT"
+          TopLeft="7.20001239776639,12.8411765735455" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_CONTACT"
+          TopLeft="280.114302024063,114.638825060043" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FEE_ITEM"
+          TopLeft="7.20001239776639,212.684316631172" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FEE_TEMPLATE"
+          TopLeft="7.20001239776639,162.723531616766" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FINANCIAL_PROFILE"
+          TopLeft="7.20001239776639,112.762746602359" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST"
+          TopLeft="7.20001239776639,312.605886659985" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST_CONTACT_MAPPING"
+          TopLeft="280.114302024063,63.740000816794" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_FIVE9_LIST_ITEM"
+          TopLeft="280.114302024063,12.8411765735455" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_GROUP_TASK"
+          TopLeft="7.20001239776639,62.8019615879521" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_NOTE"
+          TopLeft="7.20001239776639,262.645101645579" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_NOV9_TRADELINE"
+          TopLeft="280.685730605223,267.335297789788" />
+        <NodeLayout
+          Size="269,42"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03\HASH_SF_ALIAS"
+          TopLeft="280.114302024063,216.43647354654" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="554,410"
+          Size="554,453"
+          Id="Package\HASH_COMPARE FOR SF_To_STG_03"
+          TopLeft="16,15" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
