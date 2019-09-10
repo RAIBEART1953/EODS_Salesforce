@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SF_to_STG_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{AEE902C0-E94B-44D6-B662-F51BAA23FE0C}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{0D057664-9540-47A5-8BB3-3B7232C70357}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -91,6 +91,40 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
+          DTS:refId="Package\Update Hash_Compare\STG Hash 01"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{9f133dd2-fe7b-4714-a528-dc1cd562c8b5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="STG Hash 01"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>STG_Hash_03.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Update Hash_Compare\STG Hash 02"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{06f38c61-0a51-49d4-9950-86664fba78a7}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="STG Hash 02"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>STG_Hash_03.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Update Hash_Compare\STG Hash 03"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
@@ -131,51 +165,59 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="134.4,41.6"
+          Size="134,42"
           Id="Package\SF to STG\SF to STG 1"
           TopLeft="27.4285763915704,6.16470716931831" />
         <NodeLayout
-          Size="134.4,41.6"
+          Size="134,42"
           Id="Package\SF to STG\SF to STG 2"
           TopLeft="27.4285763915704,51.7411783967464" />
         <NodeLayout
-          Size="134.4,41.6"
+          Size="134,42"
           Id="Package\SF to STG\SF to STG 3"
           TopLeft="27.4285763915704,97.3176496241745" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,160.8"
-          Size="204.8,204"
+          PanelSize="205,161"
+          Size="205,204"
           Id="Package\SF to STG"
           TopLeft="34.8571434507565,66.0705891619092" />
         <NodeLayout
-          Size="139.2,41.6"
+          Size="140,42"
           Id="Package\Update Hash_Compare\STG Hash 03"
-          TopLeft="27.7714338944882,96.8000029171215" />
+          TopLeft="28.7714338944882,101.800002917122" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Update Hash_Compare\STG Hash 01"
+          TopLeft="28.7714338944882,7" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Update Hash_Compare\STG Hash 02"
+          TopLeft="28.7714338944882,54.4000014585608" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="200,147.2"
-          Size="200,190.4"
+          PanelSize="200,155"
+          Size="200,198"
           Id="Package\Update Hash_Compare"
-          TopLeft="262.285718752414,67.9058833052955" />
+          TopLeft="288.285718752414,71.9058833052955" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="239.657143450756,165.588236233602">
+          TopLeft="239.857143450756,169.488236233602">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="22.628575301657,0"
+              EndConnector="48.4285753016575,0"
               Start="0,0"
-              End="15.128575301657,0">
+              End="40.9285753016575,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="15.128575301657,0" />
+                    End="40.9285753016575,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
