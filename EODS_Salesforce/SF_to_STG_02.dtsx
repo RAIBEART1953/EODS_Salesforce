@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SF_to_STG_02"
   DTS:PackageType="5"
-  DTS:VersionBuild="86"
-  DTS:VersionGUID="{2F9D4DDB-B5AB-459E-8500-6E64C8635F1E}">
+  DTS:VersionBuild="87"
+  DTS:VersionGUID="{A6E84383-7996-444A-8334-841066D297DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -36,7 +36,7 @@
           ConnectionString="ServerUser=systemintegration1@beyondfinance.com;ServerTimeout=60;ServerUrl=https://login.salesforce.com/services/Soap/u/45.0;RetainSameConnection=True;OrganizationId=;PortalId=;AllowDuplicatesSave=False;AllowFieldTruncation=False;CommitAllOrNone=False;AssignmentRule=;ProxyHost=;ProxyPort=0;ProxyUser=;">
           <ServerPassword
             Sensitive="1" xmlns="www.microsoft.com/SqlServer/Dts"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwBOuxLnrgECzQK6HR+NDbwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABIDaimzsXt8m0G3inEJ81MNSqPKR9YM1i9F9W/zStnSwAAAAAOgAAAAAIAACAAAAC23KXkyasKzbGtxHoHSpoLgufnbpFisra6/soFaKAvnVAAAADXEFiaCwekSwJ07K3Nm1ltYfZ3LiXMZS0Ic2mkLp4pDW6y1EAJPmEIWlJ5TRUV09DHLWd9H6jY1mJIPEzuW6a1OLbExAKe576HdvOl5oP7UkAAAAAtr+QVWaL2E469CzmD8j6peejrAxA2GGxn07vzqmkmfR95EBbDB0NEQnnd/+xadqW5PFueGp+de0FV8zGdA/FR</ServerPassword>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwBOuxLnrgECzQK6HR+NDbwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD22OCdL4qY9OQBAmDw72EIMZfOJ1izV6riKGszuaYc1wAAAAAOgAAAAAIAACAAAADNv2tMJ3bUbcumwQZBiUHucwmfPFj7X4u9JtH0IkQqFFAAAAD8Geh9xS65YYB1gUTJ97y0Ao6REZ6XxPh3zwKAjPqpLPX0hFW4KpZ/8R5xS9pLv0L5fvk6Vol/CAK3zUnvR4pSWX8C+LXRsnvepo4aDi5CvUAAAABBa1Zh/cLjSSiLhzsAvXIlYB1v1dn1ITsep1X+lvi3+KPw//UOf7Y94ufz4ZGTpSgRNAF5E91O06jW55BckNGQ</ServerPassword>
         </ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -12183,400 +12183,6 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
-          DTS:refId="Package\SF_02_History_Tables\PAYMENT HISTORY"
-          DTS:CreationName="Microsoft.Pipeline"
-          DTS:Description="Data Flow Task"
-          DTS:DTSID="{93326587-6A2A-4962-B821-4F2128222306}"
-          DTS:ExecutableType="Microsoft.Pipeline"
-          DTS:LocaleID="-1"
-          DTS:ObjectName="PAYMENT HISTORY"
-          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-          <DTS:Variables />
-          <DTS:ObjectData>
-            <pipeline
-              version="1">
-              <components>
-                <component
-                  refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination"
-                  usesDispositions="true"
-                  validateExternalMetadata="False"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[stg_sf_sf_nu_dse_payment_history_src]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">true</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging]"
-                      connectionManagerRefId="Package.ConnectionManagers[EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedById]"
-                          cachedDataType="wstr"
-                          cachedLength="18"
-                          cachedName="CreatedById"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedById]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="CreatedDate"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Field]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Field"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                          cachedDataType="wstr"
-                          cachedLength="18"
-                          cachedName="Id"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsDeleted]"
-                          cachedDataType="bool"
-                          cachedName="IsDeleted"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewValue]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="NewValue"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NewValue]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OldValue]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="OldValue"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldValue]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]" />
-                        <inputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ParentId]"
-                          cachedDataType="wstr"
-                          cachedLength="18"
-                          cachedName="ParentId"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentId]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedById]"
-                          dataType="wstr"
-                          length="18"
-                          name="CreatedById" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                          dataType="dbTimeStamp"
-                          name="CreatedDate" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
-                          dataType="wstr"
-                          length="255"
-                          name="Field" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                          dataType="wstr"
-                          length="18"
-                          name="Id" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
-                          dataType="bool"
-                          name="IsDeleted" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NewValue]"
-                          dataType="wstr"
-                          length="255"
-                          name="NewValue" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldValue]"
-                          dataType="wstr"
-                          length="255"
-                          name="OldValue" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentId]"
-                          dataType="wstr"
-                          length="18"
-                          name="ParentId" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HASH_COMPARE]"
-                          dataType="bytes"
-                          length="500"
-                          name="HASH_COMPARE" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY"
-                  componentClassID="Microsoft.ManagedComponentHost"
-                  contactInfo="Extracts data from Salesforce services.; COZYROC LLC; SSIS+; © 2006-2019 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;0"
-                  description="Extracts data from Salesforce services."
-                  name="PAYMENT HISTORY"
-                  validateExternalMetadata="False">
-                  <properties>
-                    <property
-                      dataType="System.Null"
-                      name="ComponentObject"
-                      typeConverter="NOTBROWSABLE" />
-                    <property
-                      dataType="System.String"
-                      name="DtsComponentDesigner"
-                      typeConverter="NOTBROWSABLE">CozyRoc.SqlServer.SSIS.SforceSourceDesigner, CozyRoc.SSISPlus.UI.2017, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=16cf490bb80c34ea</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies query batch size."
-                      expressionType="Notify"
-                      name="BatchSize">500</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies how to access the service."
-                      name="InputType"
-                      typeConverter="CozyRoc.SqlServer.SSIS.SforceSource+InputTypes">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Salesforce object."
-                      expressionType="Notify"
-                      name="Object"
-                      typeConverter="CozyRoc.SqlServer.SSIS.TableEditor">nu_dse__Payment__History</property>
-                    <property
-                      dataType="System.String"
-                      description="SOQL statement."
-                      expressionType="Notify"
-                      name="Statement"
-                      UITypeEditor="CozyRoc.SqlServer.SSIS.TextDialogEditor"></property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies to include deleted records."
-                      name="IncludeDeleted">true</property>
-                    <property
-                      dataType="System.String"
-                      description="Filter statement. Optional."
-                      expressionType="Notify"
-                      name="ObjectFilter">DAY_ONLY(createddate) = yesterday</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies source load type."
-                      name="Mode"
-                      typeConverter="CozyRoc.SqlServer.SSIS.SforceSource+ModeTypes">0</property>
-                    <property
-                      dataType="System.String"
-                      name="UserComponentTypeName">CozyRoc.SforceSource</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Connections[SFORCE]"
-                      connectionManagerID="Package.ConnectionManagers[SF_Prod_SOURCE]"
-                      connectionManagerRefId="Package.ConnectionManagers[SF_Prod_SOURCE]"
-                      description="Salesforce Connection Manager"
-                      name="SFORCE" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output]"
-                      name="Salesforce Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
-                          length="18"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]"
-                          name="CreatedById" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]"
-                          dataType="dbTimeStamp"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]"
-                          name="CreatedDate" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Field]"
-                          length="255"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]"
-                          name="Field" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Id]"
-                          length="18"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]"
-                          name="Id" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]"
-                          dataType="bool"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]"
-                          name="IsDeleted" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[NewValue]"
-                          length="255"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]"
-                          name="NewValue" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[OldValue]"
-                          length="255"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]"
-                          name="OldValue" />
-                        <outputColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]"
-                          dataType="wstr"
-                          externalMetadataColumnId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[ParentId]"
-                          length="18"
-                          lineageId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]"
-                          name="ParentId" />
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
-                          dataType="wstr"
-                          length="18"
-                          name="CreatedById" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
-                          dataType="dbTimeStamp"
-                          name="CreatedDate" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Field]"
-                          dataType="wstr"
-                          length="255"
-                          name="Field" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Id]"
-                          dataType="wstr"
-                          length="18"
-                          name="Id" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
-                          dataType="bool"
-                          name="IsDeleted" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[NewValue]"
-                          dataType="wstr"
-                          length="255"
-                          name="NewValue" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[OldValue]"
-                          dataType="wstr"
-                          length="255"
-                          name="OldValue" />
-                        <externalMetadataColumn
-                          refId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[ParentId]"
-                          dataType="wstr"
-                          length="18"
-                          name="ParentId" />
-                      </externalMetadataColumns>
-                    </output>
-                  </outputs>
-                </component>
-              </components>
-              <paths>
-                <path
-                  refId="Package\SF_02_History_Tables\PAYMENT HISTORY.Paths[Salesforce Source Output]"
-                  endId="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  name="Salesforce Source Output"
-                  startId="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output]" />
-              </paths>
-            </pipeline>
-          </DTS:ObjectData>
-        </DTS:Executable>
-        <DTS:Executable
           DTS:refId="Package\SF_02_History_Tables\PROGRAM HISTORY"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
@@ -13759,24 +13365,412 @@
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
-      <DTS:PrecedenceConstraints>
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SF_02_History_Tables.PrecedenceConstraints[Constraint]"
-          DTS:CreationName=""
-          DTS:DTSID="{39D54763-7C53-4C16-82A1-A3A5FD34725B}"
-          DTS:From="Package\SF_02_History_Tables\OFFER HISTORY"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint"
-          DTS:To="Package\SF_02_History_Tables\PAYMENT HISTORY" />
-        <DTS:PrecedenceConstraint
-          DTS:refId="Package\SF_02_History_Tables.PrecedenceConstraints[Constraint 1]"
-          DTS:CreationName=""
-          DTS:DTSID="{BEF88DC3-A43C-473D-8ABF-91BCC4EFA809}"
-          DTS:From="Package\SF_02_History_Tables\PROGRAM HISTORY"
-          DTS:LogicalAnd="True"
-          DTS:ObjectName="Constraint 1"
-          DTS:To="Package\SF_02_History_Tables\TRADELINE HISTORY" />
-      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SF_03"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{081C0822-DF4D-42C7-A7E4-E523A6005D3C}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SF_03">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SF_03\PAYMENT HISTORY"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{93326587-6A2A-4962-B821-4F2128222306}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PAYMENT HISTORY"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  validateExternalMetadata="False"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[stg_sf_sf_nu_dse_payment_history_src]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging]"
+                      connectionManagerRefId="Package.ConnectionManagers[EC2AMAZ-GQJ0QHR\SQL2017_SSIS.BF_Redshift_Staging]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedById]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="CreatedById"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedById]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Field]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Field"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="Id"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsDeleted]"
+                          cachedDataType="bool"
+                          cachedName="IsDeleted"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NewValue]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="NewValue"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NewValue]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OldValue]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="OldValue"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldValue]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]" />
+                        <inputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ParentId]"
+                          cachedDataType="wstr"
+                          cachedLength="18"
+                          cachedName="ParentId"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentId]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedById]"
+                          dataType="wstr"
+                          length="18"
+                          name="CreatedById" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
+                          dataType="wstr"
+                          length="255"
+                          name="Field" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                          dataType="wstr"
+                          length="18"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsDeleted]"
+                          dataType="bool"
+                          name="IsDeleted" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NewValue]"
+                          dataType="wstr"
+                          length="255"
+                          name="NewValue" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldValue]"
+                          dataType="wstr"
+                          length="255"
+                          name="OldValue" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentId]"
+                          dataType="wstr"
+                          length="18"
+                          name="ParentId" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HASH_COMPARE]"
+                          dataType="bytes"
+                          length="500"
+                          name="HASH_COMPARE" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Extracts data from Salesforce services.; COZYROC LLC; SSIS+; © 2006-2019 COZYROC LLC; All Rights Reserved; http://www.cozyroc.com/;0"
+                  description="Extracts data from Salesforce services."
+                  name="PAYMENT HISTORY"
+                  validateExternalMetadata="False">
+                  <properties>
+                    <property
+                      dataType="System.Null"
+                      name="ComponentObject"
+                      typeConverter="NOTBROWSABLE" />
+                    <property
+                      dataType="System.String"
+                      name="DtsComponentDesigner"
+                      typeConverter="NOTBROWSABLE">CozyRoc.SqlServer.SSIS.SforceSourceDesigner, CozyRoc.SSISPlus.UI.2017, Version=1.0.0.0, Culture=Neutral, PublicKeyToken=16cf490bb80c34ea</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies query batch size."
+                      expressionType="Notify"
+                      name="BatchSize">500</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how to access the service."
+                      name="InputType"
+                      typeConverter="CozyRoc.SqlServer.SSIS.SforceSource+InputTypes">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Salesforce object."
+                      expressionType="Notify"
+                      name="Object"
+                      typeConverter="CozyRoc.SqlServer.SSIS.TableEditor">nu_dse__Payment__History</property>
+                    <property
+                      dataType="System.String"
+                      description="SOQL statement."
+                      expressionType="Notify"
+                      name="Statement"
+                      UITypeEditor="CozyRoc.SqlServer.SSIS.TextDialogEditor"></property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies to include deleted records."
+                      name="IncludeDeleted">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Filter statement. Optional."
+                      expressionType="Notify"
+                      name="ObjectFilter">DAY_ONLY(createddate) = yesterday</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies source load type."
+                      name="Mode"
+                      typeConverter="CozyRoc.SqlServer.SSIS.SforceSource+ModeTypes">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">CozyRoc.SforceSource</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Connections[SFORCE]"
+                      connectionManagerID="Package.ConnectionManagers[SF_Prod_SOURCE]"
+                      connectionManagerRefId="Package.ConnectionManagers[SF_Prod_SOURCE]"
+                      description="Salesforce Connection Manager"
+                      name="SFORCE" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output]"
+                      name="Salesforce Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
+                          length="18"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedById]"
+                          name="CreatedById" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[CreatedDate]"
+                          name="CreatedDate" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Field]"
+                          length="255"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Field]"
+                          name="Field" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Id]"
+                          length="18"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[Id]"
+                          name="Id" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]"
+                          dataType="bool"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[IsDeleted]"
+                          name="IsDeleted" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[NewValue]"
+                          length="255"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[NewValue]"
+                          name="NewValue" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[OldValue]"
+                          length="255"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[OldValue]"
+                          name="OldValue" />
+                        <outputColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]"
+                          dataType="wstr"
+                          externalMetadataColumnId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[ParentId]"
+                          length="18"
+                          lineageId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].Columns[ParentId]"
+                          name="ParentId" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedById]"
+                          dataType="wstr"
+                          length="18"
+                          name="CreatedById" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Field]"
+                          dataType="wstr"
+                          length="255"
+                          name="Field" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[Id]"
+                          dataType="wstr"
+                          length="18"
+                          name="Id" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[IsDeleted]"
+                          dataType="bool"
+                          name="IsDeleted" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[NewValue]"
+                          dataType="wstr"
+                          length="255"
+                          name="NewValue" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[OldValue]"
+                          dataType="wstr"
+                          length="255"
+                          name="OldValue" />
+                        <externalMetadataColumn
+                          refId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output].ExternalColumns[ParentId]"
+                          dataType="wstr"
+                          length="18"
+                          name="ParentId" />
+                      </externalMetadataColumns>
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SF_03\PAYMENT HISTORY.Paths[Salesforce Source Output]"
+                  endId="Package\SF_03\PAYMENT HISTORY\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Salesforce Source Output"
+                  startId="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY.Outputs[Salesforce Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
@@ -13803,101 +13797,6 @@
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="203,42"
-          Id="Package\SF_02_History_Tables\OFFER HISTORY"
-          TopLeft="31.3999949761798,14.2249994530398" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\SF_02_History_Tables\PAYMENT HISTORY"
-          TopLeft="31.3999949761798,61.6582461227419" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\SF_02_History_Tables\PROGRAM HISTORY"
-          TopLeft="31.3999949761798,109.091492792444" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\SF_02_History_Tables\PROSPECT HISTORY"
-          TopLeft="31.3999949761798,203.957986131848" />
-        <NodeLayout
-          Size="203,42"
-          Id="Package\SF_02_History_Tables\TRADELINE HISTORY"
-          TopLeft="31.3999949761798,156.524739462146" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables.PrecedenceConstraints[Constraint]"
-          TopLeft="31.3999949761798,35.0249994530398">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.4332466697021"
-              Start="0,0"
-              End="-7.5,47.4332466697021">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,43.4332466697021" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,43.4332466697021"
-                    Point2="-22.5,47.4332466697021"
-                    Point3="-18.5,47.4332466697021" />
-                  <mssgle:LineSegment
-                    End="-7.5,47.4332466697021" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables.PrecedenceConstraints[Constraint 1]"
-          TopLeft="31.3999949761798,129.891492792444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.4332466697021"
-              Start="0,0"
-              End="-7.5,47.4332466697021">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,43.4332466697021" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,43.4332466697021"
-                    Point2="-22.5,47.4332466697021"
-                    Point3="-18.5,47.4332466697021" />
-                  <mssgle:LineSegment
-                    End="-7.5,47.4332466697021" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="245,296"
-          Size="245,339"
-          Id="Package\SF_02_History_Tables"
-          TopLeft="715.571429568894,55.1764714462122" />
-        <NodeLayout
-          Size="203,42"
           Id="Package\SF_01\PAYMENT SHARE"
           TopLeft="55.5714289728475,17.1176444098198" />
         <NodeLayout
@@ -13908,6 +13807,10 @@
           Size="203,42"
           Id="Package\SF_01\QUOTE"
           TopLeft="55.5714289728475,67.903526803515" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\SF_01\sf_tradeline_debt_type"
+          TopLeft="61,328" />
         <NodeLayout
           Size="203,42"
           Id="Package\SF_01\TASK"
@@ -14056,10 +13959,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="187,42"
-          Id="Package\SF_01\sf_tradeline_debt_type"
-          TopLeft="61,328" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
@@ -14067,32 +13966,55 @@
           Size="297,468"
           Id="Package\SF_01"
           TopLeft="323.714285062284,57.8882352855373" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SF_02_History_Tables\OFFER HISTORY"
+          TopLeft="28.3999949761798,14.2249994530398" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SF_02_History_Tables\PROGRAM HISTORY"
+          TopLeft="28.3999949761798,63.4693283459759" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SF_02_History_Tables\PROSPECT HISTORY"
+          TopLeft="28.3999949761798,161.957986131848" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SF_02_History_Tables\TRADELINE HISTORY"
+          TopLeft="28.3999949761798,112.713657238912" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245,229"
+          Size="245,272"
+          Id="Package\SF_02_History_Tables"
+          TopLeft="707.571429568894,55.1764714462122" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="620.714285062284,291.888235285537">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="94.85714450661,-67.2117638393251"
+              EndConnector="86.85714450661,-100.711763839325"
               Start="0,0"
-              End="87.35714450661,-67.2117638393251">
+              End="79.35714450661,-100.711763839325">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="43.428572253305,0" />
+                    End="39.428572253305,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="43.428572253305,0"
-                    Point2="47.428572253305,0"
-                    Point3="47.428572253305,-4" />
+                    Point1="39.428572253305,0"
+                    Point2="43.428572253305,0"
+                    Point3="43.428572253305,-4" />
                   <mssgle:LineSegment
-                    End="47.428572253305,-63.2117638393251" />
+                    End="43.428572253305,-96.7117638393251" />
                   <mssgle:CubicBezierSegment
-                    Point1="47.428572253305,-63.2117638393251"
-                    Point2="47.428572253305,-67.2117638393251"
-                    Point3="51.428572253305,-67.2117638393251" />
+                    Point1="43.428572253305,-96.7117638393251"
+                    Point2="43.428572253305,-100.711763839325"
+                    Point3="47.428572253305,-100.711763839325" />
                   <mssgle:LineSegment
-                    End="87.35714450661,-67.2117638393251" />
+                    End="79.35714450661,-100.711763839325" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14101,324 +14023,20 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="203,42"
+          Id="Package\SF_03\PAYMENT HISTORY"
+          TopLeft="10.3999949761798,4.6582461227419" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="218,102"
+          Size="218,145"
+          Id="Package\SF_03"
+          TopLeft="710,364" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\SF_02_History_Tables\OFFER HISTORY">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_02_History_Tables\OFFER HISTORY\OLE DB Destination"
-          TopLeft="59,109" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_02_History_Tables\OFFER HISTORY\OFFER HISTORY"
-          TopLeft="59,60" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables\OFFER HISTORY.Paths[Salesforce Source Output]"
-          TopLeft="59,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="-7.5,49">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,45" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,45"
-                    Point2="-22.5,49"
-                    Point3="-18.5,49" />
-                  <mssgle:LineSegment
-                    End="-7.5,49" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SF_02_History_Tables\OFFER HISTORY\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SF_02_History_Tables\PAYMENT HISTORY">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination"
-          TopLeft="64,119" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\SF_02_History_Tables\PAYMENT HISTORY\PAYMENT HISTORY"
-          TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables\PAYMENT HISTORY.Paths[Salesforce Source Output]"
-          TopLeft="60,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="4,59"
-              Start="0,0"
-              End="-3.5,59">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,55"
-                    Point2="-22.5,59"
-                    Point3="-18.5,59" />
-                  <mssgle:LineSegment
-                    End="-3.5,59" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SF_02_History_Tables\PAYMENT HISTORY\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SF_02_History_Tables\PROGRAM HISTORY">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="174,42"
-          Id="Package\SF_02_History_Tables\PROGRAM HISTORY\OLE DB Destination"
-          TopLeft="60,109" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\SF_02_History_Tables\PROGRAM HISTORY\PROGRAM HISTORY"
-          TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables\PROGRAM HISTORY.Paths[Salesforce Source Output]"
-          TopLeft="60,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="-7.5,49">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,45" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,45"
-                    Point2="-22.5,49"
-                    Point3="-18.5,49" />
-                  <mssgle:LineSegment
-                    End="-7.5,49" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SF_02_History_Tables\PROGRAM HISTORY\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SF_02_History_Tables\PROSPECT HISTORY">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_02_History_Tables\PROSPECT HISTORY\OLE DB Destination"
-          TopLeft="65,117" />
-        <NodeLayout
-          Size="176,42"
-          Id="Package\SF_02_History_Tables\PROSPECT HISTORY\PROSPECT HISTORY"
-          TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables\PROSPECT HISTORY.Paths[Salesforce Source Output]"
-          TopLeft="60,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="5,57"
-              Start="0,0"
-              End="-2.5,57">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,53" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,53"
-                    Point2="-22.5,57"
-                    Point3="-18.5,57" />
-                  <mssgle:LineSegment
-                    End="-2.5,57" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SF_02_History_Tables\PROSPECT HISTORY\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\SF_02_History_Tables\TRADELINE HISTORY">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="181,42"
-          Id="Package\SF_02_History_Tables\TRADELINE HISTORY\OLE DB Destination"
-          TopLeft="60,109" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\SF_02_History_Tables\TRADELINE HISTORY\TRADELINE HISTORY"
-          TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package\SF_02_History_Tables\TRADELINE HISTORY.Paths[Salesforce Source Output]"
-          TopLeft="60,81">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49"
-              Start="0,0"
-              End="-7.5,49">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,45" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,45"
-                    Point2="-22.5,49"
-                    Point3="-18.5,49" />
-                  <mssgle:LineSegment
-                    End="-7.5,49" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\SF_02_History_Tables\TRADELINE HISTORY\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\SF_01\PAYMENT SHARE">
     <LayoutInfo>
@@ -14486,7 +14104,7 @@
     design-time-name="Package\SF_01\PROCESSOR">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\SF_01\PROCESSOR\PROCESSOR"
@@ -14526,7 +14144,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14549,15 +14169,15 @@
     design-time-name="Package\SF_01\QUOTE">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_01\QUOTE\OLE DB Destination"
-          TopLeft="59,117" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\SF_01\QUOTE\QUOTE"
           TopLeft="59,60" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SF_01\QUOTE\OLE DB Destination"
+          TopLeft="59,117" />
         <EdgeLayout
           Id="Package\SF_01\QUOTE.Paths[Salesforce Source Output]"
           TopLeft="59,81">
@@ -14589,7 +14209,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14608,6 +14230,18 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SF_01\sf_tradeline_debt_type">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162,42"
+          Id="Package\SF_01\sf_tradeline_debt_type\Salesforce Source"
+          TopLeft="113,57" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <TaskHost
     design-time-name="Package\SF_01\TASK">
     <LayoutInfo>
@@ -14675,15 +14309,15 @@
     design-time-name="Package\SF_01\TU PERMISSION AUDIT">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="171,42"
-          Id="Package\SF_01\TU PERMISSION AUDIT\OLE DB Destination"
-          TopLeft="195,107" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171,42"
           Id="Package\SF_01\TU PERMISSION AUDIT\Salesforce Source"
           TopLeft="195,54" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SF_01\TU PERMISSION AUDIT\OLE DB Destination"
+          TopLeft="195,107" />
         <EdgeLayout
           Id="Package\SF_01\TU PERMISSION AUDIT.Paths[Salesforce Source Output]"
           TopLeft="195,75">
@@ -14715,7 +14349,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14738,7 +14374,7 @@
     design-time-name="Package\SF_01\USER">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="162,42"
           Id="Package\SF_01\USER\Salesforce Source"
@@ -14766,7 +14402,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -14786,16 +14424,327 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\SF_01\sf_tradeline_debt_type">
+    design-time-name="Package\SF_02_History_Tables\OFFER HISTORY">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162,42"
-          Id="Package\SF_01\sf_tradeline_debt_type\Salesforce Source"
-          TopLeft="113,57" />
+          Size="171,42"
+          Id="Package\SF_02_History_Tables\OFFER HISTORY\OLE DB Destination"
+          TopLeft="59,109" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SF_02_History_Tables\OFFER HISTORY\OFFER HISTORY"
+          TopLeft="59,60" />
+        <EdgeLayout
+          Id="Package\SF_02_History_Tables\OFFER HISTORY.Paths[Salesforce Source Output]"
+          TopLeft="59,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="-7.5,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45"
+                    Point2="-22.5,49"
+                    Point3="-18.5,49" />
+                  <mssgle:LineSegment
+                    End="-7.5,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SF_02_History_Tables\OFFER HISTORY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SF_03\PAYMENT HISTORY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SF_03\PAYMENT HISTORY\OLE DB Destination"
+          TopLeft="64,119" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\SF_03\PAYMENT HISTORY\PAYMENT HISTORY"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\SF_03\PAYMENT HISTORY.Paths[Salesforce Source Output]"
+          TopLeft="60,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4,59"
+              Start="0,0"
+              End="-3.5,59">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,55" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,55"
+                    Point2="-22.5,59"
+                    Point3="-18.5,59" />
+                  <mssgle:LineSegment
+                    End="-3.5,59" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SF_03\PAYMENT HISTORY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SF_02_History_Tables\PROGRAM HISTORY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SF_02_History_Tables\PROGRAM HISTORY\OLE DB Destination"
+          TopLeft="60,109" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\SF_02_History_Tables\PROGRAM HISTORY\PROGRAM HISTORY"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\SF_02_History_Tables\PROGRAM HISTORY.Paths[Salesforce Source Output]"
+          TopLeft="60,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="-7.5,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45"
+                    Point2="-22.5,49"
+                    Point3="-18.5,49" />
+                  <mssgle:LineSegment
+                    End="-7.5,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SF_02_History_Tables\PROGRAM HISTORY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SF_02_History_Tables\PROSPECT HISTORY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\SF_02_History_Tables\PROSPECT HISTORY\OLE DB Destination"
+          TopLeft="65,117" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\SF_02_History_Tables\PROSPECT HISTORY\PROSPECT HISTORY"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\SF_02_History_Tables\PROSPECT HISTORY.Paths[Salesforce Source Output]"
+          TopLeft="60,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="5,57"
+              Start="0,0"
+              End="-2.5,57">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,53"
+                    Point2="-22.5,57"
+                    Point3="-18.5,57" />
+                  <mssgle:LineSegment
+                    End="-2.5,57" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SF_02_History_Tables\PROSPECT HISTORY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SF_02_History_Tables\TRADELINE HISTORY">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SF_02_History_Tables\TRADELINE HISTORY\OLE DB Destination"
+          TopLeft="60,109" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\SF_02_History_Tables\TRADELINE HISTORY\TRADELINE HISTORY"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\SF_02_History_Tables\TRADELINE HISTORY.Paths[Salesforce Source Output]"
+          TopLeft="60,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="-7.5,49">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,45"
+                    Point2="-22.5,49"
+                    Point3="-18.5,49" />
+                  <mssgle:LineSegment
+                    End="-7.5,49" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SF_02_History_Tables\TRADELINE HISTORY\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
